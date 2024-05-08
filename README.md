@@ -11,3 +11,13 @@ nslookup $hostname '192.168.100.54'
 }
 
 Then we can call getalldns to execte the script
+
+
+## Functions
+### alljava
+This funcation will list all java version installed in your mac
+
+### setjava
+Get the version numnber from above funcation and pass it to this funcation to switch particular version in JAVA_HOME
+
+example : setjava 1.8.0 OR setjava 14
