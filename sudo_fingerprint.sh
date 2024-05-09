@@ -1,5 +1,6 @@
 #!/bin/bash
 
+setTerminalFingerPrint(){
 # Check if the script is being run with root privileges
 if [ "$(id -u)" -ne 0 ]; then
     echo "Please run this script as root or with sudo."
@@ -29,3 +30,4 @@ echo "auth       sufficient     pam_smartcard.so  "${line_number}
 awk -v line_number="$line_number" -v line_to_add="$line_to_add" 'NR == line_number + 1 {print line_to_add} 1' /etc/pam.d/sudo > /etc/pam.d/sudo.tmp
 mv /etc/pam.d/sudo.tmp /etc/pam.d/sudo
 echo "Line added after 'auth       sufficient     pam_smartcard.so' in /etc/pam.d/sudo."
+}
